@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>203alimi</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="box1">
+            <div class="dark-mode-toggle">
+                <input type="checkbox" id="dark-mode-checkbox">
+            </div>
+            <div class="logoBox">
+                <div class="logo">203alimi</div>
+            </div>
+        </div>
+        <div class="buttons">
+            <form action="http://localhost:3000/logout" class="form" method="post">
+                <input type="text" value="<%= name %>" name="name" style="display: none;">
+                <a href="#"><%=name%> 계정에서 로그아웃</a>
+            </form>
+        </div>
+    </header>
+    <div class="text">  </div>
+    <span style="display: none;" class="hiddenName"><%=name%></span>
+    <main class="main">
+        <div class="Late_wrap">
+            <h2>나의 1인 1기어</h2>
+            <h3><%=work %></h3>
+            <h4><%=explain %></h4>
+        </div>
+        <div class="cg_wrap">
+            <div class="clean_group">
+                <h2>교실청소: </h2>
+                <div class="box">
+                    <p class="1">
+                        <%=sg.group_one%>
+                    </p>
+                    <p class="2">
+                        <%=sg.group_two%>
+                    </p>
+                    <p class="3">
+                        <%=sg.group_three%>
+                    </p>
+                    <p class="4">
+                        <%=sg.group_four%>
+                    </p>
+                    <p class="5">
+                        <%=sg.group_five%>
+                    </p>
+                </div>  
+            </div>
+            <h2 class="second_h2">특별구역 청소: </h2>
+            <span class="contentBox" id="result"></span>
+        </div>
+        <div class="check_late">
+            <form action="" method="post">
+                <h3 class="check_late2">오늘 정시에 등교를 하셧나요?</h3>
+               <j>
+                   <input type="checkbox" name="check_late" id="check_late"> 솔직하게 대답하세요!!
+               </j> 
+            </form>
+        </div>
+    </main>
+<script src="../js/logedIn.js"></script>
+</body>
+
+</html>

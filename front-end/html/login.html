@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>203alimi</title>
+    <link rel="stylesheet" href="../css/signUp.css">
+</head>
+<body>
+    <header class="header">
+        <div class="img">
+            <a href="http://localhost:3000/">
+                <img src="../public/home icon.png" alt="home img" class="img">
+            </a>
+        </div>
+        <div class="title">
+            로그인 하기
+        </div>
+        <input role="switch" type="checkbox" id="toogle" />
+    </header>
+    <main class="main">
+        <form action="http://localhost:3000/login" method="post" class="form">
+            <input type="text" name="id" id="id" required class="input"  placeholder="아이디">
+            <p class="errMsg"></p>
+            <input type="number" name="student_num" required class="input"  id="student_id"  placeholder="학번">
+            <p class="errMsg"></p>
+            <input type="password" name="password"  required class="input"  id="password"  placeholder="비밀번호">
+            <p class="errMsg"></p>
+            <p class="signUp">이미 계정이 없으신가요?<a href="../html/signUp.html" class="move">회원가입 하기</a></p>
+        </form>
+    </main> 
+    <footer class="footer">
+        <input type="submit" value="로그인" id="btn">
+    </footer>
+    <script src="../js/login.js"></script>
+</body>
+</html>
