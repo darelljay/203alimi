@@ -52,19 +52,6 @@ const auth = (req, res) => {
   
  
 app.get('/',(req,res)=>{
-  // setInterval(async ()=>{
-  //     if(index===6) index = 1;
-  //     let group = await clean_Classroom(index);
-
-  //     let clean_group = {
-  //       'g':group,
-  //       'i':index
-  //     }
-      
-  //     index++;
-  //     console.log(index);
-  //     res.render('index',{clean_group});
-  //   },7000);
   res.render('index',{sg});
 });
 

@@ -69,7 +69,7 @@ exports.checkStudentNum = async (student_num) => {
         resolve(result);
       }
     );
-  })
+  });
 };
 
 exports.login = (id, student_num, password) => {
@@ -100,25 +100,20 @@ exports.signUp = (name, id, password, student_id) => {
           if (error) resolve(error);
 
           console.log(results);
-          
-          if (results.length <= 0){
+
+          if (results.length <= 0) {
             resolve(401);
+          } else {
+            db.query(
+              "UPDATE student SET student_password = ?,id = ? WHERE(student_name =? )",
+              [password, id, name],
+              (error, result) => {
+                if (error) resolve(error);
+
+                resolve(200);
+              }
+            );
           }
-          
-          // else{
-          //   // if (results[0].student_name !== name) resolve(400);
-          // }
-
-          db.query(
-            "UPDATE student SET student_password = ?,id = ? WHERE(student_name =? )",
-            [password, id, name],
-            (error, result) => {
-              if (error) resolve(error);
-
-            resolve(200);
-
-            }
-          );
         }
       );
     });
