@@ -1,5 +1,6 @@
 const clean_indexElement = document.querySelector(".clean_group");
 const toogleBtn = document.querySelector("#dark-mode-checkbox")
+const button_parent = document.querySelector(".buttons");
 let idx = 2;
 const clean = () => {
     setInterval(() => {
@@ -22,6 +23,13 @@ const clean = () => {
     }, 7000);
 }
 clean();
+
+button_parent.firstElementChild.addEventListener("click",()=>{
+    window.location.href = 'https://203alimi.netlify.app/html/signup';
+})
+button_parent.lastElementChild.addEventListener("click",()=>{
+    window.location.href = 'https://203alimi.netlify.app/html/login.html';
+})
 
 toogleBtn.addEventListener("click", () => {
     document.body.classList.toggle("darkmode");
