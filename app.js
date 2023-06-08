@@ -19,7 +19,7 @@ app.use("/task",task);
 app.use(cors());
 app.use(express.static('front-end'));
 app.set('view engine', 'ejs');
-app.set('views', './front-end/views');
+app.set('views', './back-end/views');
 
 app.use(session({
     secret: 'kimdarell@1234',
