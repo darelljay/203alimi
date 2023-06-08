@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/task",task);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 app.use(cors());
-app.use(express.static('front-end'));
+app.use(express.static('back-end'));
 app.set('view engine', 'ejs');
 app.set('views', './back-end/views');
 

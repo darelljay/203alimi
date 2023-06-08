@@ -105,11 +105,11 @@ exports.signUp = (name, id, password, student_id) => {
             resolve(401);
           } else {
             db.query(
-              "UPDATE student SET student_password = ?,id = ? WHERE(student_name =? )",
+              "UPDATE student SET student_password = ?,  id = ? WHERE(student_name = ? )",
               [password, id, name],
               (error, result) => {
                 if (error) resolve(error);
-
+                console.log('sucsses')
                 resolve(200);
               }
             );
