@@ -10,19 +10,13 @@ app.set('views', '../../front-end/views');
 router.post('/signUp',async (req,res)=>{
     console.log(req.body)
     const {name,id,password,student_num} = req.body;
-    console.log(await signUp(name,id,password,student_num))
+    // console.log(await signUp(name,id,password,student_num))
 
-    // if(await signUp(name,id,password,student_num) === 200){
-    //     res.redirect("http://localhost:3000/html/login.html")
-    // }else{
-    //     res.render("signup");
-    // }
-    
-    // const results = await checkStudentNum(id);
-    // console.log(results)
-    // const work = results[0].student_work;
-    // const explain = results[0].explain;
-    // await signUp(name,id,password,student_num) === 200 ? res.render("logedin",{sg,name,work,explain}):res.render("signup");
+    if(await signUp(name,id,password,student_num) === 200){
+        res.redirect("https://203alimi.netlify.app/html/login.html");
+    }else{
+        res.render("signup");
+    }
 });
 
 module.exports = router;

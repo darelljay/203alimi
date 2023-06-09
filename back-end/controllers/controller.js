@@ -59,10 +59,10 @@ exports.checkUsers = (name, id) => {
   );
 };
 
-exports.checkStudentNum = async (student_num) => {
-  return new Promise((resolve, reject) => {
-    db.query(
-      "SELECT * FROM student WHERE id = ?",
+exports.checkStudentNum =  (student_num) => {
+  return new Promise(async (resolve, reject) => {
+   await db.query(
+      "SELECT * FROM student WHERE ` id` = ?",
       [student_num],
       (error, result) => {
         if (error) console.log(error);
@@ -90,27 +90,33 @@ exports.login = (id, student_num, password) => {
   });
 };
 
-exports.signUp = (name, id, password, student_id) => {
+exports.signUp =  (name, id, password, student_id) => {
   {
-    return new Promise((resolve, reject) => {
-      db.query(
+    return new Promise(async (resolve, reject) => {
+     await db.query(
         "SELECT * FROM student WHERE student_id = ? and student_password is null",
         [student_id],
         (error, results) => {
           if (error) resolve(error);
 
           console.log(results);
-
-          if (results.length <= 0) {
+          if (results[0].length <= 0) {
             resolve(401);
           } else {
             db.query(
-              "UPDATE student SET student_password = ?,  id = ? WHERE(student_name = ? )",
-              [password, id, name],
+              "UPDATE student SET `student_password` = ?, ` id` = ? WHERE (`student_id` = ?);",
+              [password, id, student_id],
               (error, result) => {
                 if (error) resolve(error);
-                console.log('sucsses')
-                resolve(200);
+              
+                console.log(result.affectedRows);
+                if(result.affectedRows != 0){
+                  console.log('sucsses');
+                  resolve(200);
+                }else{
+                  console.log('something is wrong');
+                  resolve(500)
+                }
               }
             );
           }

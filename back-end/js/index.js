@@ -21,6 +21,7 @@ const clean = () => {
         })
         idx++;
     }, 7000);
+
 }
 clean();
 
@@ -28,7 +29,7 @@ button_parent.firstElementChild.addEventListener("click",()=>{
     window.location.href = 'https://203alimi.netlify.app/html/signup';
 })
 button_parent.lastElementChild.addEventListener("click",()=>{
-    window.location.href = 'https://203alimi.netlify.app/html/login.html';
+    window.location.href = 'https://203alimi.netlify.app/html/login';
 })
 
 toogleBtn.addEventListener("click", () => {
