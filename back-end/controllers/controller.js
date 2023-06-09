@@ -75,7 +75,7 @@ exports.checkStudentNum =  (student_num) => {
 exports.login = (id, student_num, password) => {
   return new Promise((resolve, reject) => {
     db.query(
-      "SELECT * FROM student WHERE id = ? and student_password = ?",
+      "SELECT * FROM student WHERE ` id` = ? and student_password = ?",
       [id, password],
       (error, result) => {
         if (error) console.log(error);

@@ -56,7 +56,6 @@ app.get('/',(req,res)=>{
 });
 
 app.post('/login',async (req,res)=>{
-    
       const {id,student_num,password} = req.body;
       const results = await checkStudentNum(id);
 
@@ -69,7 +68,7 @@ app.post('/login',async (req,res)=>{
     const name = session.student_name;
     const work = results[0].student_work;
     const explain = results[0].explain;
-    
+    console.log(results);
     res.render("logedIn",{sg,name,work,explain});
     // res.send('<h1>Login secceded</h1>').status(200);
    }
