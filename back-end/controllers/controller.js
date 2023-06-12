@@ -99,13 +99,12 @@ exports.signUp =  (name, id, password, student_id) => {
         [student_id],
         (error, results) => {
           if (error) resolve(error);
-
-          console.log(results);
-          if (results[0].length <= 0 || results===undefined) {
+          
+          if (results.length <= 0) {
             resolve(401);
           } else {
             db.query(
-              "UPDATE student SET `student_password` = ?, ` id` = ? WHERE (`student_id` = ?);",
+               "UPDATE student SET `student_password` = ?, ` id` = ? WHERE (`student_id` = ?);",
               [password, id, student_id],
               (error, result) => {
                 if (error) resolve(error);
