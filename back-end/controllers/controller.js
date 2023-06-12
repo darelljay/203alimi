@@ -101,7 +101,7 @@ exports.signUp =  (name, id, password, student_id) => {
           if (error) resolve(error);
 
           console.log(results);
-          if (results[0].length <= 0) {
+          if (results[0].length <= 0 || results===undefined) {
             resolve(401);
           } else {
             db.query(
