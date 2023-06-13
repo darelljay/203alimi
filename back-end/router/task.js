@@ -15,7 +15,7 @@ router.post('/signUp',async (req,res)=>{
     if(await signUp(name,id,password,student_num) === 200){
         res.redirect("https://203alimi.netlify.app/html/login.html");
     }else{
-        res.render("signup");
+        res.rener("signup");
     }
 });
 

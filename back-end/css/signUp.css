@@ -1,10 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-}
-
 body {
   display: flex;
   justify-content: center;
@@ -84,16 +77,15 @@ body {
 
 .main {
   width: 95vw;
-  height: auto; /* 변경된 부분: 높이를 자동으로 조정 */
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .form {
-  width: 90vw; /* 변경된 부분: 너비를 뷰포트 너비에 따라 조정 */
-  max-width: 400px; /* 변경된 부분: 최대 너비 설정 */
-  height: auto; /* 변경된 부분: 높이를 자동으로 조정 */
+  width: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -101,7 +93,7 @@ body {
 }
 
 .form > .input {
-  width: 90%; /* 변경된 부분: 백분율로 너비 설정 */
+  width: 18.75em;
   height: 3em;
   padding: 12px;
   border-color: #0E7DBC;
@@ -114,4 +106,112 @@ body {
   color: #0E7DBC;
 }
 
-/* 나머지 CSS 속성은 변경되지 않았습니다. 필요에 따라 수정할 수 있습니다. */
+.form > .input::placeholder {
+  color: #0E7DBC;
+}
+
+.form > .input:focus {
+  outline: none;
+  border-color: #0E7DBC;
+  box-shadow: 0 0 10px #0E7DBC;
+  border-radius: 10rem;
+}
+
+.nullInput::placeholder {
+  color: red;
+}
+
+.nullInput {
+  width: 18.75em;
+  height: 3em;
+  padding: 12px;
+  border-color: red;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 1em;
+  transition: 1s;
+  color: red;
+}
+
+.nullInput:focus {
+  outline: none;
+  border-color: red;
+  box-shadow: 0 0 10px red;
+  color: red;
+  border-radius: 10rem;
+}
+
+.errMsg {
+  color: red;
+}
+
+.signUp {
+  width: 18em;
+  display: flex;
+  justify-content: space-between;
+  color: #0E7DBC;
+}
+
+.move {
+  color: purple;
+}
+
+.move:hover {
+  cursor: pointer;
+}
+
+.footer {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+}
+
+#btn {
+  width: 12em;
+  height: 3em;
+  background-color: #0E7DBC;
+  border-color: #0E7DBC;
+  border-radius: 3em;
+  box-shadow: 0 0 10px #0E7DBC;
+  color: #fff;
+  font-size: 1em;
+}
+
+#btn:hover {
+  cursor: pointer;
+}
+
+#btn:active {
+  background-color: #0E7DBC;
+  transform: translateY(4px);
+}
+
+/* 미디어 쿼리 추가 */
+@media (max-width: 740px) {
+  .main {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .form {
+    height: auto;
+  }
+
+  .form > .input {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .nullInput {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  #btn {
+    width: 10em;
+  }
+}
+
