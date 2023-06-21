@@ -91,7 +91,6 @@ exports.login = (id, student_num, password) => {
   });
 };
 
-
 exports.signUp =  (name, id, password, student_id) => {
   {
     return new Promise(async (resolve, reject) => {
@@ -105,11 +104,11 @@ exports.signUp =  (name, id, password, student_id) => {
             resolve(401);
           } else {
             db.query(
-               "UPDATE student SET `student_password` = ?, ` id` = ? WHERE (`student_id` = ?);",
+               "UPDATE student SET `student_password` = ?, `id` = ? WHERE (`student_id` = ?);",
               [password, id, student_id],
               (error, result) => {
                 if (error) resolve(error);
-              
+
                 console.log(result.affectedRows);
                 if(result.affectedRows != 0){
                   console.log('sucsses');
