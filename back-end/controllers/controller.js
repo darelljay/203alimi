@@ -13,7 +13,7 @@ const student_group = {
 
 exports.getStudnet_info = async () => {
   for (let i = 1; i <= 5; i++) {
-    db.query(
+  await  db.query(
       "SELECT student_name FROM student WHERE student_group = ?",
       [i],
       (error, result) => {

@@ -79,7 +79,7 @@ app.post('/login',async (req,res)=>{
 app.post('/logOut',(req,res)=>{
   const name = req.body.name; 
 
-  req.session.destroy((err) => {
+  req.session.destroy((err) => {q
     if (err) {
       console.log(err);
     }
