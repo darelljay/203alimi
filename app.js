@@ -13,6 +13,7 @@ const session = require("express-session");
 // const { register_auth } = require('../203alimi/back-end/router/task');
 const path = require('path');
 const ejs = require('ejs');
+const { ppid } = require('process');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/task",task);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -50,6 +51,26 @@ const auth = (req, res) => {
   })
   };
   
+  app.get('/Secret',async (req,res)=>{
+    const {id,student_num,password} = req.body;
+    console.log(req.body)
+    const results = await checkStudentNum(id);
+
+    if(await login(id,student_num,password)===400){
+      console.log('..?')
+      return res.render('login');
+     }else{
+      session.id = id;
+      session.student_name = results[0].student_name;
+      console.log(session.id);
+      const name = session.student_name;
+      const work = results[0].student_work;
+      const explain = results[0].explain;
+      console.log(results);
+      res.render("logedIn",{sg,name,work,explain});
+      // res.send('<h1>Login secceded</h1>').status(200);
+     }
+  })
  
 app.get('/',(req,res)=>{
   res.render('index',{sg});
@@ -79,7 +100,7 @@ app.post('/login',async (req,res)=>{
 app.post('/logOut',(req,res)=>{
   const name = req.body.name; 
 
-  req.session.destroy((err) => {q
+  req.session.destroy((err) => {
     if (err) {
       console.log(err);
     }

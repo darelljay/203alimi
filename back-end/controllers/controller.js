@@ -80,7 +80,7 @@ exports.login = (id, student_num, password) => {
       [id, password],
       (error, result) => {
         if (error) console.log(error);
-
+        console.log(result)
         if (result.length === 0) {
           resolve(400);
         } else {
