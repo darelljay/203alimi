@@ -106,5 +106,6 @@ app.post('/logOut',(req,res)=>{
     }
  });
 
+
  res.render("index",{sg});
 });
